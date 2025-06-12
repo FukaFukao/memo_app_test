@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>アプリ選択</title>
+  <title>ミニアプリ集</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       background-color: #f8f8f8;
-      padding: 60px 20px;
+      padding: 50px 20px;
     }
     h1 {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      color: #333;
     }
     .menu {
       display: flex;
@@ -34,6 +35,14 @@
     a.button:hover {
       background-color: #388e3c;
     }
+
+    @media screen and (min-width: 600px) {
+      .menu {
+        flex-direction: row;
+        justify-content: center;
+        max-width: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -43,8 +52,8 @@
   <button class="nav-toggle" onclick="toggleNav()">☰</button>
   <ul id="nav-links">
     <li><a href="index.html">🏠 ホーム</a></li>
-    <li><a href="memo_app_test.html">📔 メモ帳</a></li>
-    <li><a href="calc_test.html">🧮 計算機</a></li>
+    <li><a href="memo.html">📔 メモ帳</a></li>
+    <li><a href="calc.html">🧮 計算機</a></li>
   </ul>
 </nav>
 
@@ -113,11 +122,13 @@
     document.getElementById("nav-links").classList.toggle("active");
   }
 </script>
+
   
-  <h1>アプリを選んでください</h1>
+  <h1>🧩 ミニアプリ集</h1>
   <div class="menu">
-    <a class="button" href="memo_app_test.html">📔 メモ帳アプリ</a>
-    <a class="button" href="calc_test.html">🧮 計算機アプリ</a>
+    <a class="button" href="memo.html">📔 メモ帳</a>
+    <a class="button" href="calc.html">🧮 計算機</a>
+    <a class="button" href="converter.html">🔢 進数変換</a>
   </div>
 </body>
 </html>
