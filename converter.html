@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>進数変換ツール</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin: 15px auto;
+      max-width: 400px;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <h1>📟 進数変換ツール</h1>
+
+  <div class="form-group">
+    <label for="binary">2進数</label>
+    <input type="text" id="binary" placeholder="例: 1010" oninput="fromBinary()" />
+  </div>
+
+  <div class="form-group">
+    <label for="decimal">10進数</label>
+    <input type="text" id="decimal" placeholder="例: 10" oninput="fromDecimal()" />
+  </div>
+
+  <div class="form-group">
+    <label for="hex">16進数</label>
+    <input type="text" id="hex" placeholder="例: A" oninput="fromHex()" />
+  </div>
+
+  <script>
+    const binInput = document.getElementById("binary");
+    const decInput = document.getElementById("decimal");
+    const hexInput = document.getElementById("hex");
+
+    function fromBinary() {
+      const bin = binInput.value.trim();
+      if (!/^[01]+$/.test(bin)) return;
+      const dec = parseInt(bin, 2);
+      decInput.value = dec;
+      hexInput.value = dec.toString(16).toUpperCase();
+    }
+
+    function fromDecimal() {
+      const dec = parseInt(decInput.value.trim(), 10);
+      if (isNaN(dec)) return;
+      binInput.value = dec.toString(2);
+      hexInput.value = dec.toString(16).toUpperCase();
+    }
+
+    function fromHex() {
+      const hex = hexInput.value.trim();
+      if (!/^[0-9a-fA-F]+$/.test(hex)) return;
+      const dec = parseInt(hex, 16);
+      decInput.value = dec;
+      binInput.value = dec.toString(2);
+    }
+  </script>
+</body>
+</html>
