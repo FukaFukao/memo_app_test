@@ -24,6 +24,71 @@
       background-color: #45a049;
     }
   </style>
+  <!-- ヘッダー -->
+<nav class="navbar">
+  <div class="brand">📔 メモアプリ</div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul id="nav-links">
+    <li><a href="index.html">ホーム</a></li>
+    <li><a href="memo_app_test.html">メモ帳</a></li>
+    <li><a href="#about">使い方</a></li>
+  </ul>
+</nav>
+
+<style>
+  .navbar {
+    background-color: #4caf50;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+  .brand {
+    font-size: 20px;
+  }
+  .menu-toggle {
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+  }
+  #nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  #nav-links li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .menu-toggle {
+      display: block;
+    }
+    #nav-links {
+      display: none;
+      flex-direction: column;
+      margin-top: 10px;
+      background-color: #388e3c;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    #nav-links.active {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("active");
+  }
+</script>
+  
 </head>
 <body>
   <h1>メモ帳アプリ</h1>
