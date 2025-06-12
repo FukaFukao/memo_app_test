@@ -1,0 +1,32 @@
+import React, { useState } from 'react';
+
+export default function TimeDiffCalculator() {
+  const [start, setStart] = useState('');
+  const [end, setEnd] = useState('');
+  const [result, setResult] = useState('');
+
+  const calculate = () => {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+    if (isNaN(startDate) || isNaN(endDate)) {
+      setResult("有効な日付を入力してください。");
+      return;
+    }
+    const diffMs = endDate - startDate;
+    const sec = Math.floor(diffMs / 1000);
+    const min = Math.floor(sec / 60);
+    const hour = Math.floor(min / 60);
+    const day = Math.floor(hour / 24);
+    setResult(`${day}日 ${hour}時間 ${min}分 ${sec}秒`);
+  };
+
+  return (
+    <div className="p-4">
+      <h2 className="text-xl font-bold">日時差の計算</h2>
+      <input type="datetime-local" value={start} onChange={e => setStart(e.target.value)} />
+      <input type="datetime-local" value={end} onChange={e => setEnd(e.target.value)} />
+      <button onClick={calculate}>計算</button>
+      <p>{result}</p>
+    </div>
+  );
+}
