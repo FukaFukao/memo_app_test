@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>日時差計算アプリ</title>
+</head>
+<body>
+  <h1>日時差の計算</h1>
+  
+  <label>開始日時:
+    <input type="datetime-local" id="start">
+  </label><br><br>
+
+  <label>終了日時:
+    <input type="datetime-local" id="end">
+  </label><br><br>
+
+  <button onclick="calculate()">計算する</button>
+
+  <h2>結果:</h2>
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      const start = new Date(document.getElementById('start').value);
+      const end = new Date(document.getElementById('end').value);
+
+      if (isNaN(start) || isNaN(end)) {
+        document.getElementById('result').textContent = "有効な日付を入力してください。";
+        return;
+      }
+
+      let diffMs = end - start;
+      let diffSec = Math.floor(diffMs / 1000);
+      let diffMin = Math.floor(diffSec / 60);
+      let diffHour = Math.floor(diffMin / 60);
+      let diffDay = Math.floor(diffHour / 24);
+
+      document.getElementById('result').innerHTML = `
+        <p>${diffDay} 日</p>
+        <p>${diffHour} 時間</p>
+        <p>${diffMin} 分</p>
+        <p>${diffSec} 秒</p>
+      `;
+    }
+  </script>
+</body>
+</html>
