@@ -2,97 +2,45 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ようこそ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>アプリ選択</title>
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
-      margin-top: 100px;
-      background-color: #f0f0f0;
+      background-color: #f8f8f8;
+      padding: 60px 20px;
+    }
+    h1 {
+      margin-bottom: 40px;
+    }
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 300px;
+      margin: 0 auto;
     }
     a.button {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 18px;
+      display: block;
       background-color: #4caf50;
       color: white;
       text-decoration: none;
+      padding: 15px;
+      font-size: 18px;
       border-radius: 10px;
+      transition: background-color 0.3s;
     }
     a.button:hover {
-      background-color: #45a049;
+      background-color: #388e3c;
     }
   </style>
-  <!-- ヘッダー -->
-<nav class="navbar">
-  <div class="brand">📔 メモアプリ</div>
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-  <ul id="nav-links">
-    <li><a href="index.html">ホーム</a></li>
-    <li><a href="memo_app_test.html">メモ帳</a></li>
-    <li><a href="#about">使い方</a></li>
-  </ul>
-</nav>
-
-<style>
-  .navbar {
-    background-color: #4caf50;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
-  }
-  .brand {
-    font-size: 20px;
-  }
-  .menu-toggle {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    display: none;
-  }
-  #nav-links {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  #nav-links li a {
-    color: white;
-    text-decoration: none;
-  }
-
-  @media screen and (max-width: 600px) {
-    .menu-toggle {
-      display: block;
-    }
-    #nav-links {
-      display: none;
-      flex-direction: column;
-      margin-top: 10px;
-      background-color: #388e3c;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    #nav-links.active {
-      display: flex;
-    }
-  }
-</style>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("nav-links").classList.toggle("active");
-  }
-</script>
-  
 </head>
 <body>
-  <h1>メモ帳アプリ</h1>
-  <p>以下のボタンを押すとメモ帳を開きます。</p>
-  <a href="memo_app_test.html" class="button">📔 メモ帳へ</a>
+  <h1>アプリを選んでください</h1>
+  <div class="menu">
+    <a class="button" href="memo_app_test.html">📔 メモ帳アプリ</a>
+    <a class="button" href="calc_test.html">🧮 計算機アプリ</a>
+  </div>
 </body>
 </html>
